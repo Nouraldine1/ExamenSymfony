@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des classes{% endblock %}
+
+{% block content %}
+<div class="bg-white p-6 rounded shadow-md">
+    <h1 class="text-xl font-bold mb-4">Liste des classes</h1>
+    <table class="table-auto w-full border-collapse border border-gray-200">
+        <thead>
+            <tr class="bg-gray-100">
+                <th class="border border-gray-300 px-4 py-2">ID</th>
+                <th class="border border-gray-300 px-4 py-2">Nom</th>
+                <th class="border border-gray-300 px-4 py-2">Niveau</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for classe in classes %}
+            <tr>
+                <td class="border border-gray-300 px-4 py-2">{{ classe.id }}</td>
+                <td class="border border-gray-300 px-4 py-2">{{ classe.nom }}</td>
+                <td class="border border-gray-300 px-4 py-2">{{ classe.niveau.nom }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="3" class="text-center text-gray-500 py-4">Aucune classe disponible.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des niveaux{% endblock %}
+
+{% block content %}
+<div class="bg-white p-6 rounded shadow-md">
+    <h1 class="text-xl font-bold mb-4">Liste des niveaux</h1>
+    <table class="table-auto w-full border-collapse border border-gray-200">
+        <thead>
+            <tr class="bg-gray-100">
+                <th class="border border-gray-300 px-4 py-2">ID</th>
+                <th class="border border-gray-300 px-4 py-2">Nom</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for niveau in niveaux %}
+            <tr>
+                <td class="border border-gray-300 px-4 py-2">{{ niveau.id }}</td>
+                <td class="border border-gray-300 px-4 py-2">{{ niveau.nom }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="2" class="text-center text-gray-500 py-4">Aucun niveau disponible.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
