@@ -1,0 +1,33 @@
+{
+  "name": "gestion_dettes",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tailwindcss -i ./assets/css/app.css -o ./public/css/app.css --minify",
+    "watch": "tailwindcss -i ./assets/css/app.css -o ./public/css/app.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17"
+  },
+  "main": "postcss.config.js",
+  "dependencies": {
+    "browserslist": "^4.24.4",
+    "caniuse-lite": "^1.0.30001702",
+    "electron-to-chromium": "^1.5.112",
+    "escalade": "^3.2.0",
+    "fraction.js": "^4.3.7",
+    "nanoid": "^3.3.8",
+    "node-releases": "^2.0.19",
+    "normalize-range": "^0.1.2",
+    "picocolors": "^1.1.1",
+    "postcss-value-parser": "^4.2.0",
+    "source-map-js": "^1.2.1",
+    "update-browserslist-db": "^1.1.3"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

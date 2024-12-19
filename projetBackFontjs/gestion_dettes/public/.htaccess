@@ -1,0 +1,4 @@
+RewriteEngine On
+# Rediriger l'URL racine et index.html vers connexion.html
+RewriteRule ^$ /connexion.html [L]
+RewriteRule ^index.html$ /connexion.html [L]

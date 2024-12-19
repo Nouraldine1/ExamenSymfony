@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Dettes - Gestion des Dettes</title>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body class="bg-gray-100 font-sans flex">
+    <aside class="w-64 bg-blue-600 text-white h-screen fixed top-0 left-0 flex flex-col">
+        <div class="p-4">
+            <h1 class="text-2xl font-bold">Gestion des Dettes</h1>
+        </div>
+        <nav class="flex-1" id="sidebar-nav"></nav>
+        <div class="p-4">
+            <button id="deconnexion" class="w-full bg-red-500 px-4 py-2 rounded hover:bg-red-600">Déconnexion</button>
+        </div>
+    </aside>
+    <main id="content" class="flex-1 ml-64 p-6"></main>
+    <script src="/js/api.js"></script>
+    <script src="/js/authentification.js"></script>
+    <script src="/js/dettes.js"></script>
+    <script>
+        const role = localStorage.getItem('role');
+        const nav = document.getElementById('sidebar-nav');
+        let navContent = '<ul class="space-y-2 p-4">';
+        if (role === 'ROLE_CLIENT') {
+            navContent += '<li><a href="/dettes.html" class="block py-2 px-4 hover:bg-blue-700 rounded">Mes Dettes</a></li>';
+        } else if (role === 'ROLE_BOUTIQUIER') {
+            navContent += '<li><a href="/dettes.html" class="block py-2 px-4 hover:bg-blue-700 rounded">Dettes</a></li>';
+        } else if (role === 'ROLE_ADMIN') {
+            navContent += '<li><a href="/articles.html" class="block py-2 px-4 hover:bg-blue-700 rounded">Articles</a></li>';
+            navContent += '<li><a href="/dettes.html" class="block py-2 px-4 hover:bg-blue-700 rounded">Dettes</a></li>';
+        }
+        navContent += '</ul>';
+        nav.innerHTML = navContent;
+    </script>
+</body>
+</html>
