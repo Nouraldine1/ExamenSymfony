@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des cours{% endblock %}
+
+{% block content %}
+<div class="bg-white p-6 rounded shadow-md">
+    <h1 class="text-xl font-bold mb-4">Liste des cours</h1>
+    <table class="table-auto w-full border-collapse border border-gray-200">
+        <thead>
+            <tr class="bg-gray-100">
+                <th class="border border-gray-300 px-4 py-2">ID</th>
+                <th class="border border-gray-300 px-4 py-2">Nom</th>
+                <th class="border border-gray-300 px-4 py-2">Module</th>
+                <th class="border border-gray-300 px-4 py-2">Professeur</th>
+                <th class="border border-gray-300 px-4 py-2">Classes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cours in coursList %}
+            <tr>
+                <td class="border border-gray-300 px-4 py-2">{{ cours.id }}</td>
+                <td class="border border-gray-300 px-4 py-2">{{ cours.nom }}</td>
+                <td class="border border-gray-300 px-4 py-2">{{ cours.module }}</td>
+                <td class="border border-gray-300 px-4 py-2">{{ cours.professeur.nom }}</td>
+                <td class="border border-gray-300 px-4 py-2">
+                    {% for classe in cours.classes %}
+                        {{ classe.nom }}{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="5" class="text-center text-gray-500 py-4">Aucun cours trouvé.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
